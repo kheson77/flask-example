@@ -21,12 +21,12 @@ def create_app():
     
     @app.route("/")
     def index():
-        # p1 = Product(name = "cake")
-        # p2 = Product(name = 'pen')
-        # db.session.add(p1)
-        # db.session.add(p2)
+        p1 = Product(name = "cake")
+        p2 = Product(name = 'pen')
+        db.session.add(p1)
+        db.session.add(p2)
         
-        # db.session.commit()
+        db.session.commit()
         user = {
             "name": "Son Khe"
         }
