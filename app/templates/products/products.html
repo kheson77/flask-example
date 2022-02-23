@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+        {% for product in products %}
+            <h2> Product: {{product['name']}}</h2>
+            <h2> Description: {{product['description']}}</h2>
+            <h2> Price: {{product['price']}}</h2>
+            <h2> Color: {{product['color']}}</h2>
+            <h3> ---------------------------------------</h3>
+        {% endfor%}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">Product Card</h2>
+<div style="display: flex;">
+    {% for product in products %}
+        <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="Denim Jeans" style="width:100%">
+        <h1>{{product['name']}}</h1>
+        <p class="price">${{product['price']}}</p>
+        <p>{{product['description']}}</p>
+        <a href="{{ url_for('get_product_by_id', id = product['id']) }}">
+            <button>
+                Details
+            </button>
+        </a>
+        </div>
+    {% endfor%}
+</div>
+</body>
+</html>
